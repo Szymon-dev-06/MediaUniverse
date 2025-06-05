@@ -38,7 +38,7 @@ useEffect(() => {
 			>
 				<img
 					className="header-nav_img home-icon"
-					src={`${import.meta.env.BASE_URL}icons/home.svg`}
+					src='icons/home.svg'
 					alt="home-icon"
 				/>
 			</button>
@@ -51,7 +51,7 @@ useEffect(() => {
 			>
 				<img
 					className="header-nav_img profile-photo"
-					src={profileButtonPhoto ?? `${import.meta.env.BASE_URL}icons/emerald-user.svg` }
+					src= {profileButtonPhoto ?? 'icons/emerald-user.svg'}
 					alt="profile"
 				/>
 			</button>

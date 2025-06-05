@@ -41,7 +41,7 @@ async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
 				if (input) input.click()
 			}
 		}}>
-      <img className='uploader-plus-icon' src={`${import.meta.env.BASE_URL}icons/upload-plus.svg`} alt="uploading-plus-icon" />
+      <img className='uploader-plus-icon' src='/icons/upload-plus.svg' alt="uploading-plus-icon" />
       <input className="uploader-input" type="file" accept="image/*" onChange={handleFileChange} disabled={uploading} />
     </label>
   );

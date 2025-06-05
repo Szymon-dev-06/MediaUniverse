@@ -8,7 +8,7 @@ function UserProfilePhoto() {
 	});
 
 	const handleUploadSuccess = () => {
-		const newURL = 'http://localhost:3000/uploads/UserProfilePhoto.JPG' + `?t=${Date.now()}`;
+		const newURL = `${import.meta.env.VITE_API_URL}/UserProfilePhoto.JPG?t=${Date.now()}`;
 		sessionStorage.setItem('profilePhoto', newURL);
 		setPhotoURL(newURL);
 		window.dispatchEvent(new Event('profilePhotoUpdate'));
@@ -16,7 +16,7 @@ function UserProfilePhoto() {
 
   return (
 	<UploaderProfilePhoto onUploadSuccess={handleUploadSuccess}>
-		<img className='profile-photo' src={photoURL ?? `${import.meta.env.BASE_URL}icons/white-user.svg`}/></UploaderProfilePhoto>
+		<img className='profile-photo' src={photoURL ?? 'icons/white-user.svg'}/></UploaderProfilePhoto>
   );
 }
 

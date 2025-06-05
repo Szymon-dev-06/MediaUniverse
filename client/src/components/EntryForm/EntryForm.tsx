@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext';
-// import { motion } from 'framer-motion'; 
 import SubmitFormButton from '../SubmitFormButton/SubmitFormButton';
 import './EntryForm.scss'
 
