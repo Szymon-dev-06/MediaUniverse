@@ -9,7 +9,7 @@ function PhotoSkeleton() {
 
 		
 	const refreshPhotos = () => {
-		fetch('http://localhost:3000/photos')
+		fetch(`${import.meta.env.VITE_API_URL}/photos`)
 		.then(res => res.json())
 		.then(setPhotos)
 		}
@@ -26,7 +26,7 @@ function PhotoSkeleton() {
 		return;
 	}
 
-	fetch(`http://localhost:3000/uploads/${name}`, { method: 'DELETE' }).then(() => {
+	fetch(`${import.meta.env.VITE_API_URL}/${name}`, { method: 'DELETE' }).then(() => {
 		setPhotos((photos) => photos.filter((n) => n !== name));
 		setConfirming(null);
 	});
@@ -40,7 +40,7 @@ function PhotoSkeleton() {
 				if(confirming === name)  {
 					setConfirming(null)
 				}
-			}}><img key={name} src={`http://localhost:3000/uploads/${name}`} className='photo-skeleton' alt="{name}" /></button>
+			}}><img key={name} src={`${import.meta.env.VITE_API_URL}/photos`} className='photo-skeleton' alt="{name}" /></button>
 			))}
 		</>
 	)

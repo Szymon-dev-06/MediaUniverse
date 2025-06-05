@@ -14,7 +14,7 @@ async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
   try {
     setUploading(true);
 
-    const response = await fetch('http://localhost:3000/upload', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/uploads`, {
       method: 'POST',
       body: formData,
     });
