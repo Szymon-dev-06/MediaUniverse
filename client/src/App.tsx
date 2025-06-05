@@ -11,7 +11,7 @@ function App() {
 	}, [])
 
   return (
-	<BrowserRouter basename='/MediaUniverse/'>
+	<BrowserRouter>
 		<Routes>
 			<Route path='/' element={<AuthorizationPage/>} />
 			<Route path='/HomePage' element={<HomePage/>} />
