@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="150" height="150">
+  <!-- Синий фон -->
+  <circle cx="128" cy="128" r="126" fill="#50C878" />
+
+  <!-- Золотой плюс -->
+  <path fill="#fff" d="M140 116h44v12h-44v44h-12v-44H84v-12h44V72h12v44z"/>
+</svg>

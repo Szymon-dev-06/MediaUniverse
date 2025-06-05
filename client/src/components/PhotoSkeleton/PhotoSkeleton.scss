@@ -1,0 +1,48 @@
+.delete-button {
+	display: flex;
+	width: 18%;
+	border-radius: 1rem;
+	overflow: hidden;
+	cursor: pointer;
+	position: relative;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+	&:hover,
+	&:focus {
+		transform: scale(1.03);
+		box-shadow: 0 8px 18px rgba(255, 0, 0, 0.25);
+	}
+
+	&::after {
+		content: 'Double-click to delete';
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		font-size: 1.2rem;
+		color: white;
+		background: rgba(255, 0, 0, 0.6);
+		padding: 0.2rem 0;
+		opacity: 0;
+		transform: translateY(100%);
+		transition: opacity 0.2s ease, transform 0.2s ease;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	&:hover::after,
+	&:focus::after {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+@media(max-width: 425px) {
+	width: 70%;
+}
+}
+
+.photo-skeleton {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out both;
+}

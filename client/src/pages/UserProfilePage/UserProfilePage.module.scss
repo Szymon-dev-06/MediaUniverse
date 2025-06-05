@@ -1,0 +1,21 @@
+@use '/src/styles/mixins.scss' as *;
+
+.mainContainer {
+	margin: 4rem auto;
+	padding: 2.5rem;
+	width: 100%;
+	max-width: 900px;
+	min-height: 45vh;
+	border-radius: 2rem;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+	@include flex($align: center, $gap: 3rem, $justify: center);
+	animation: fadeInUp 0.7s ease-out both;
+}
+
+.positionContainer {
+	@include flex(column);
+	gap: 1.5rem;
+}

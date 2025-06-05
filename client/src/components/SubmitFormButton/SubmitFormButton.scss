@@ -1,0 +1,23 @@
+.submit-form_button {
+	padding: 1.2rem 2.5rem;
+	font-size: 1.6rem;
+	font-weight: 600;
+	color: #fff;
+	background-color: var(--emerald-accent);
+	border: none;
+	border-radius: 0.8rem;
+	cursor: pointer;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+	transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+
+	&:hover {
+		background-color: #3ca965;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+	}
+
+	&:active {
+		transform: scale(0.97);
+		box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	}
+}

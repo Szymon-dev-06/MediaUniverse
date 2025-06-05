@@ -1,0 +1,15 @@
+.uploader-profile-photo_label {
+	width: 14rem;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	background-color: var(--emerald-accent);
+	cursor: pointer;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+	&:hover {
+		transform: scale(1.05);
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+	}
+}
+

@@ -1,0 +1,25 @@
+@mixin flex($drn: row, $wrap: nowrap, $justify: flex-start, $align: stretch, $gap: 0) {
+	display: flex;
+	flex-direction: $drn;
+	flex-wrap: $wrap;
+	justify-content: $justify;
+	align-items: $align;
+	gap: $gap;
+}
+
+@mixin grid($column1, $column2, $column3, $row1, $row2, $gap: 0,  $justify-items: start, $align-items: stretch) {
+	display: grid;
+	grid-template-columns: $column1 $column2 $column3;
+	grid-template-rows: $row1 $row2;
+	justify-items: $justify-items;
+	align-items: $align-items;
+	gap: $gap;
+}
+
+@mixin container-style() {
+	background-color: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
