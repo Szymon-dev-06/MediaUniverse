@@ -64,19 +64,15 @@ app.post("/uploads", upload.single("image"), (req: any, res: Response) => {
 	res.json({ path: `/uploads/${req.file.filename}` });
 });
 
-app.get("/photos", (req, res) => {
-	try {
-		const files = fs.readdirSync(uploadDir).filter(f => {
-			return (
-				!f.startsWith(".") &&
-				!f.toLowerCase().startsWith("userprofilephoto")
-			);
-		});
+app.get('/user-profile', (req, res) => {
+  const profilePath = path.join(uploadDir, 'userProfilePhoto.JPG');
 
-		res.json(files);
-	} catch (error) {
-		res.status(500).json({ error: "Failed to read photos directory" });
-	}
+  // Проверяем, существует ли файл
+  if (fs.existsSync(profilePath)) {
+    res.json({ avatarUrl: '/uploads/userProfilePhoto.JPG' });
+  } else {
+    res.json({ avatarUrl: null }); // Или можешь вернуть путь к иконке-заглушке
+  }
 });
 
 app.delete("/uploads/:name", async (req: Request, res: Response) => {

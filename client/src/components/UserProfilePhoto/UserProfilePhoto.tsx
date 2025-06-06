@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UploaderProfilePhoto from '../UploaderProfilePhoto/UploaderProfilePhoto';
 import './UserProfilePhoto.scss'
 
@@ -6,6 +6,12 @@ function UserProfilePhoto() {
   const [photoURL, setPhotoURL] = useState<string | null>(() => {
 		return `${import.meta.env.VITE_API_URL}/uploads/userProfilePhoto.JPGt=${Date.now()}`
 	});
+
+	useEffect(() => {
+  fetch(`${import.meta.env.VITE_API_URL}/user-profile`)
+    .then(res => res.json())
+    .then(data => setPhotoURL(data.avatarUrl));
+}, []);
 
 	const handleUploadSuccess = () => {
 		const newURL = `${import.meta.env.VITE_API_URL}/uploads/userProfilePhoto.JPG?t=${Date.now()}`;
