@@ -4,7 +4,7 @@ import './UserProfilePhoto.scss'
 
 function UserProfilePhoto() {
   const [photoURL, setPhotoURL] = useState<string | null>(() => {
-		return sessionStorage.getItem('profilePhoto')
+		return `${import.meta.env.VITE_API_URL}/uploads/userProfilePhoto.JPGt=${Date.now()}`
 	});
 
 	const handleUploadSuccess = () => {
@@ -16,7 +16,7 @@ function UserProfilePhoto() {
 
   return (
 	<UploaderProfilePhoto onUploadSuccess={handleUploadSuccess}>
-		<img className='profile-photo' src={photoURL ?? 'icons/white-user.svg'} key={photoURL}/></UploaderProfilePhoto>
+		<img className='profile-photo' src={photoURL ?? 'icons/white-user.svg'}/></UploaderProfilePhoto>
   );
 }
 
