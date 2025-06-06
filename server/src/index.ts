@@ -35,6 +35,10 @@ const storage = multer.diskStorage({
 		const purpose = req.query.purpose as string | undefined;
 
 		if (purpose === "profile") {
+			const profilePath = path.join(uploadDir, 'userProfilePhoto.JPG')
+			if(fs.existsSync(profilePath)){
+				fs.unlinkSync(profilePath)
+			}
 			cb(null, `userProfilePhoto${ext}`);
 		} else {
 			try {
