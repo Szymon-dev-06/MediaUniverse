@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
 		file: Express.Multer.File,
 		cb: (error: Error | null, filename: string) => void
 	) => {
-		const ext = path.extname(file.originalname) || ".png";
+		const ext = path.extname(file.originalname) || ".JPG";
 		const purpose = req.query.purpose as string | undefined;
 
 		if (purpose === "profile") {
