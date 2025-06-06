@@ -9,7 +9,7 @@ function UploaderProfilePhoto({onUploadSuccess, children}: {onUploadSuccess?: ()
 		formData.append('image', file)
 		formData.append('purpose', 'profile')
 
-await fetch(`${import.meta.env.VITE_API_URL}/uploads?purpose=profile`, {
+await fetch(`${import.meta.env.VITE_API_URL}/uploads?purpose=profile?t=${Date.now()}`, {
   method: 'POST',
   body: formData,
 });
