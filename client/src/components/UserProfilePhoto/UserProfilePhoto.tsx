@@ -16,7 +16,7 @@ function UserProfilePhoto() {
 
   return (
 	<UploaderProfilePhoto onUploadSuccess={handleUploadSuccess}>
-		<img className='profile-photo' src={photoURL ?? 'icons/white-user.svg'}/></UploaderProfilePhoto>
+		<img className='profile-photo' src={photoURL ?? 'icons/white-user.svg'} key={photoURL}/></UploaderProfilePhoto>
   );
 }
 
