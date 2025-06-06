@@ -24,7 +24,7 @@ async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     await new Promise(res => setTimeout(res, 100));
     onUploadSuccess();
   } catch (error) {
-    console.error('Ошибка загрузки:', error);
+    console.error('Upload failed', error);
   } finally {
     setUploading(false);
     setTimeout(() => {
