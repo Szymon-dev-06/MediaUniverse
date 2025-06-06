@@ -8,7 +8,7 @@ function UserProfilePhoto() {
 	});
 
 	const handleUploadSuccess = () => {
-		const newURL = `${import.meta.env.VITE_API_URL}/uploads/userProfilePhoto?t=${Date.now()}`;
+		const newURL = `${import.meta.env.VITE_API_URL}/uploads/userProfilePhoto.JPG?t=${Date.now()}`;
 		sessionStorage.setItem('profilePhoto', newURL);
 		setPhotoURL(newURL);
 		window.dispatchEvent(new Event('profilePhotoUpdate'));
