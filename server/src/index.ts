@@ -18,7 +18,11 @@ app.use(cors({
 }));
 
 const uploadDir = path.join(__dirname, "uploads");
-app.use("/uploads", express.static(uploadDir));
+app.use("/uploads", express.static(uploadDir, {
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'no-store');
+  },
+}));
 
 const storage = multer.diskStorage({
 	destination: uploadDir,
