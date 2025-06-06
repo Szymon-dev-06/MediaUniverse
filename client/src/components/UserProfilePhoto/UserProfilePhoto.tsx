@@ -7,10 +7,15 @@ function UserProfilePhoto() {
 		return `${import.meta.env.VITE_API_URL}/uploads/userProfilePhoto.JPGt=${Date.now()}`
 	});
 
-	useEffect(() => {
-  fetch(`${import.meta.env.VITE_API_URL}uploads/userProfilePhoto.JPG`)
+useEffect(() => {
+  fetch(`${import.meta.env.VITE_API_URL}/api/user/profile`)
     .then(res => res.json())
-    .then(data => setPhotoURL(data.avatarUrl));
+    .then(data => {
+      if (data.avatarUrl) {
+        setPhotoURL(`${import.meta.env.VITE_API_URL}/${data.avatarUrl}`);
+        sessionStorage.setItem('profilePhoto', `${import.meta.env.VITE_API_URL}/${data.avatarUrl}`);
+      }
+    });
 }, []);
 
 	const handleUploadSuccess = () => {
