@@ -8,7 +8,7 @@ function UserProfilePhoto() {
 	});
 
 	useEffect(() => {
-  fetch(`${import.meta.env.VITE_API_URL}/user-profile`)
+  fetch(`${import.meta.env.VITE_API_URL}/userProfilePhoto.JPG`)
     .then(res => res.json())
     .then(data => setPhotoURL(data.avatarUrl));
 }, []);
