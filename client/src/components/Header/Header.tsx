@@ -7,7 +7,7 @@ type DisabledProps = {
 
 function Header({ disabled }: DisabledProps) {
 	
-		const smallProfilePhoto = localStorage.getItem('profilePhoto')
+	const smallProfilePhoto = localStorage.getItem('profilePhoto')
 	
 	const navigate = useNavigate();
 
