@@ -4,7 +4,7 @@ import './PhotoSkeleton.scss'
 
 function PhotoSkeleton() {
 
-	const[images, setImages] = useState<string[]>([])
+const[images, setImages] = useState<string[]>([])
 
 useEffect(() => {
 		fetch('/patchsImages.JSON')
