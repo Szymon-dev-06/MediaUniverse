@@ -4,7 +4,7 @@ import { useUser } from '../../context/UserContext';
 import SubmitFormButton from '../SubmitFormButton/SubmitFormButton';
 import './EntryForm.scss'
 
-function EntryForm()  {
+function EntryForm() {
 	
 	const { setUserName } = useUser();
 	

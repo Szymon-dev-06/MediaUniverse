@@ -1,20 +1,22 @@
+import { useEffect, useState } from 'react'
 import './UploaderProfilePhoto.scss'
 
-function UploaderProfilePhoto({onUploadSuccess, children}: {onUploadSuccess?: () => void; children?:React.ReactNode}) {	
-	async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
-		const file = e.target.files?.[0]
-		if(!file) return
+function UploaderProfilePhoto() {
 
-		const formData = new FormData()
-		formData.append('image', file)
+	const[profilePhoto, setProfilePhoto] = useState<string | null>(null)
 
-await fetch(`${import.meta.env.VITE_API_URL}/uploads?purpose=profile&t=${Date.now()}`, {
-  method: 'POST',
-  body: formData,
-});
-	
-onUploadSuccess?.()
-	}
+useEffect(() => {
+  fetch('/patchsImages.JSON')
+    .then(res => res.json())
+    .then((data: string[]) => {
+      const findProfilePhoto = data.find(name => name.endsWith('profilePhoto.jpg'));
+      if (findProfilePhoto) {
+				setProfilePhoto(findProfilePhoto);
+				localStorage.setItem('profilePhoto', findProfilePhoto)
+			}
+    })
+    .catch(err => console.log('failed to loading userProfilePhoto', err));
+}, []);
 
 	return(
 		<>
@@ -24,8 +26,8 @@ onUploadSuccess?.()
 			const input = e.currentTarget.querySelector('input[type="file"]') as HTMLInputElement || null
 			if(input) input.click()
 		}
-		}}><input onChange={handleFileChange} accept='image/*' type="file" />
-		{children}
+		}}><input accept='image/*' type="file"/>
+		<img className='profile-photo' src={profilePhoto || 'icons/white-user.svg'}/>
 		</label>
 		</>
 	)

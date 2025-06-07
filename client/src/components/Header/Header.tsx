@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.scss';
 
@@ -7,27 +6,13 @@ type DisabledProps = {
 };
 
 function Header({ disabled }: DisabledProps) {
-
-const [profileButtonPhoto, setProfileButtonPhoto] = useState<string | null>(() => {
-	return sessionStorage.getItem('profilePhoto');
-});
-
-useEffect(() => {
-	const updatePhoto = () => {
-		setProfileButtonPhoto(sessionStorage.getItem('profilePhoto'));
-	};
-
-	updatePhoto();
-	window.addEventListener('profilePhotoUpdate', updatePhoto);
-	return () => {
-		window.removeEventListener('profilePhotoUpdate', updatePhoto);
-	};
-}, []);
-
+	
+		const smallProfilePhoto = localStorage.getItem('profilePhoto')
+	
 	const navigate = useNavigate();
 
 	const homeButtonClick = () => navigate('/HomePage');
-	const userButtonClick = () => navigate('/UserProfilePage');
+	const userButtonClick = () => {navigate('/UserProfilePage');}
 
 	return (
 		<header className="header">
@@ -51,7 +36,7 @@ useEffect(() => {
 			>
 				<img
 					className="header-nav_img profile-photo"
-					src= {profileButtonPhoto ?? 'icons/emerald-user.svg'}
+					src={ smallProfilePhoto || 'icons/emerald-user.svg'}
 					alt="profile"
 				/>
 			</button>

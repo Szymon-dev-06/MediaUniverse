@@ -16,8 +16,3 @@ git clone https://github.com/Szymon-dev-06/MediaUniverse.git
 cd MediaUniverse/client
 npm install
 npm run dev
-
-# Install and run server
-cd ../server
-npm install
-npm run dev

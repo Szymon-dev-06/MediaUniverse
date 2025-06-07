@@ -2,7 +2,6 @@
 	display: flex;
 	width: 18%;
 	border-radius: 1rem;
-	overflow: hidden;
 	cursor: pointer;
 	position: relative;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -42,6 +41,7 @@
 
 .photo-skeleton {
   width: 100%;
+	object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-out both;

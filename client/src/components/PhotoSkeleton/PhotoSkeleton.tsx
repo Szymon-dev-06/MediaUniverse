@@ -2,48 +2,23 @@ import { useEffect, useState } from 'react';
 import Uploader from '../UploaderMainPhotos/UploaderMainPhotos';
 import './PhotoSkeleton.scss'
 
-
 function PhotoSkeleton() {
-	const [photos, setPhotos] = useState<string[]>([])
-	const[confirming, setConfirming] = useState<string | null>(null)
 
-		
-	const refreshPhotos = () => {
-		fetch(`${import.meta.env.VITE_API_URL}/photos`)
-		.then(res => res.json())
-		.then(setPhotos)
-		}
+	const[images, setImages] = useState<string[]>([])
 
-	useEffect(refreshPhotos, [])
-
-	function handleDeletePhoto(name: string) {
-	if (confirming !== name) {
-		setConfirming(name);
-		setTimeout(() => {
-			setConfirming(null);
-			document.activeElement instanceof HTMLElement && document.activeElement.blur();
-		}, 2000);
-		return;
-	}
-
-fetch(`${import.meta.env.VITE_API_URL}/uploads/${name}`, {
-  method: 'DELETE',
-}).then(() => {
-		setPhotos((photos) => photos.filter((n) => n !== name));
-		setConfirming(null);
-	});
-}
+useEffect(() => {
+		fetch('/patchsImages.JSON')
+	.then(res => res.json())
+	.then((data:string[]) => setImages(data)) 
+	.catch(err => console.log('failed to loading images', err))
+}, [])
 
 	return(
 		 <>
-		 <Uploader onUploadSuccess={refreshPhotos}/>
-			{photos.map(name => (
-			<button className='delete-button' key={name} onClick={() => handleDeletePhoto(name) } onBlur={() => {
-				if(confirming === name)  {
-					setConfirming(null)
-				}
-			}}><img key={name} src={`${import.meta.env.VITE_API_URL}/uploads/${name}`} className="photo-skeleton" alt={name} /></button>
-			))}
+		 <Uploader/>
+		 {images.map((url, index) => (
+		 <button className='delete-button' key={index}><img className='photo-skeleton' src={url} alt={`${index}image`} /></button>
+		 ))}
 		</>
 	)
 }

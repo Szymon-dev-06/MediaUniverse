@@ -1,5 +1,5 @@
 import Header from "../../components/Header/Header"
-import UserProfilePhoto from "../../components/UserProfilePhoto/UserProfilePhoto"
+import UploaderProfilePhoto from "../../components/UploaderProfilePhoto/UploaderProfilePhoto"
 import GreetingName from "../../components/GreetingUserName/GreetingUserName"
 import ThankYouLetter from "../../components/ThankYouLetter/ThankYouLetter"
 import styles from './UserProfilePage.module.scss'
@@ -9,12 +9,10 @@ function UserProfile() {
 		<>
 		<Header/>
 		<div className={styles.mainContainer}>
-			<UserProfilePhoto/>
-			<div className={styles.positionContaner}>
+				<UploaderProfilePhoto/>
 				<GreetingName/>
 				<ThankYouLetter/>
 			</div>
-		</div>
 		</>
 	)
 }
