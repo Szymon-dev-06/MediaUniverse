@@ -23,7 +23,7 @@ function Header({ disabled }: DisabledProps) {
 			>
 				<img
 					className="header-nav_img home-icon"
-					src='icons/home.svg'
+					src='/icons/home.svg'
 					alt="home-icon"
 				/>
 			</button>
@@ -36,7 +36,7 @@ function Header({ disabled }: DisabledProps) {
 			>
 				<img
 					className="header-nav_img profile-photo"
-					src={ smallProfilePhoto || 'icons/emerald-user.svg'}
+					src={ smallProfilePhoto || 'emerald-user.svg'}
 					alt="profile"
 				/>
 			</button>
