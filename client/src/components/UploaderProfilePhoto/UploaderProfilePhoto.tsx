@@ -9,7 +9,7 @@ useEffect(() => {
   fetch('/patchsImages.JSON')
     .then(res => res.json())
     .then((data: string[]) => {
-      const findProfilePhoto = data.find(name => name.endsWith('profilePhoto.jpg'));
+      const findProfilePhoto = data.find(name => name.endsWith('/profilePhoto.jpg'));
       if (findProfilePhoto) {
 				setProfilePhoto(findProfilePhoto);
 				localStorage.setItem('profilePhoto', findProfilePhoto)
