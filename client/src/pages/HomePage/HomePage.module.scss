@@ -2,5 +2,5 @@
 
 .container{
   margin: 2rem 0;
-	@include flex($wrap: wrap, $justify: center, $gap: 2rem)
+	@include flex($wrap: wrap, $justify: center, $align: center, $gap: 2rem)
 }
